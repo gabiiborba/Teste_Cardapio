@@ -10,14 +10,17 @@ public class Produtos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "produto", nullable = false)
-    private String produto;
+    @Column(name = "NOME", nullable = false)
+    private String nome;
 
-    @Column(name = "vendaproduto", nullable = false)
+    @Column(name = "preco_venda", nullable = false)
     private Double precoVenda;
 
-    @Column(name = "promocao_produto", nullable = false)
-    private Double promocao;
+    @Column(name = "promocao", nullable = false)
+    private Boolean promocao;
+
+    @Column(name = "descricao", nullable = false)
+    private String descricao;
 
     public Long getId() {
         return id;
@@ -27,12 +30,12 @@ public class Produtos {
         this.id = id;
     }
 
-    public String getProduto() {
-        return produto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setProduto(String produto) {
-        this.produto = produto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Double getPrecoVenda() {
@@ -43,11 +46,19 @@ public class Produtos {
         this.precoVenda = precoVenda;
     }
 
-    public Double getPromocao() {
+    public Boolean getPromocao() {
         return promocao;
     }
 
-    public void setPromocao(Double promocao) {
+    public void setPromocao(Boolean promocao) {
         this.promocao = promocao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
