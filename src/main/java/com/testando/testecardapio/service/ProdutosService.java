@@ -1,17 +1,18 @@
 package com.testando.testecardapio.service;
 
-import com.testando.testecardapio.models.produtos;
+import com.testando.testecardapio.models.Produtos;
+import com.testando.testecardapio.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class produtosService {
+public class ProdutosService {
     @Autowired
-    private com.testando.testecardapio.repository.produtosRepository produtosRepository;
+    private ProdutosRepository produtosRepository;
 
-    public List<produtos> listarProdutos(){
+    public List<Produtos> listarProdutos(){
         return produtosRepository.findAll();
     }
 }

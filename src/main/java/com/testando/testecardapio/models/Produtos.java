@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "produto")
-public class produtos {
+public class Produtos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +21,9 @@ public class produtos {
 
     @Column(name = "descricao", nullable = false)
     private String descricao;
+
+    @Column(name= "CAMINHO_IMAGEM", nullable = true, length = 255)
+    private String caminhoImagem;
 
     public Long getId() {
         return id;
@@ -60,5 +63,13 @@ public class produtos {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getCaminhoImagem() {
+        return caminhoImagem;
+    }
+
+    public void setCaminhoImagem(String caminhoImagem) {
+        this.caminhoImagem = caminhoImagem;
     }
 }

@@ -1,6 +1,8 @@
 package com.testando.testecardapio.controller;
 
-import com.testando.testecardapio.models.produtos;
+import com.testando.testecardapio.models.Produtos;
+import com.testando.testecardapio.service.ProdutosService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,17 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/produtos")
 @Validated
-public class produtosController {
+public class ProdutosController {
 
-    private com.testando.testecardapio.service.produtosService produtosService;
+    @Autowired
+    private ProdutosService produtosService;
 
-    /**
-     * Lista todos os produtos.
-     *
-     * @return uma lista de produtos
-     */
     @GetMapping
-    public List<produtos> listar(){
+    public List<Produtos> listar(){
         return produtosService.listarProdutos();
     }
 }
