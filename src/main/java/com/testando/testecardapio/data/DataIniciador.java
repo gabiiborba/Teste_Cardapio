@@ -1,4 +1,4 @@
-package com.testando.testecardapio.config;
+package com.testando.testecardapio.data;
 
 import com.testando.testecardapio.models.Produtos;
 import com.testando.testecardapio.repository.ProdutosRepository;
