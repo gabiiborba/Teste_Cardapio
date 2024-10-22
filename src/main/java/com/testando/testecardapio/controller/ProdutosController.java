@@ -7,8 +7,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/produtos")
@@ -19,7 +19,12 @@ public class ProdutosController {
     private ProdutosService produtosService;
 
     @GetMapping
-    public List<Produtos> listar(){
-        return produtosService.listarProdutos();
+    public List<Produtos> listar() {
+        try {
+            return produtosService.listarProdutos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return List.of();
+        }
     }
 }

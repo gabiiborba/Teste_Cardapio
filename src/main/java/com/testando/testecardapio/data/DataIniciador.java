@@ -14,22 +14,21 @@ public class DataIniciador implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Verifica se a tabela já contém dados
         if (produtosRepository.count() == 0) {
 
             Produtos produto5 = new Produtos();
-            produto5.setNome("Feijoada");
-            produto5.setPrecoVenda("10.00");
+            produto5.setName("Feijoada");
+            produto5.setPrice("10.00");
             produto5.setPromocao("N");
-            produto5.setDescricao("Feijão preto e arroz branco");
-            produto5.setCaminhoImagem("caminho/para/imagem1.jpg");
+            produto5.setDescription("Feijão preto e arroz branco");
+            //produto5.setImagem("caminho/para/imagem1.jpg");
 
             Produtos produto6 = new Produtos();
-            produto6.setNome("Macarronada");
-            produto6.setPrecoVenda("15.00");
+            produto6.setName("Macarronada");
+            produto6.setPrice("15.00");
             produto6.setPromocao("S");
-            produto6.setDescricao("Macarrão");
-            produto6.setCaminhoImagem("caminho/para/imagem2.jpg");
+            produto6.setDescription("Macarrão");
+            //produto6.setImagem("caminho/para/imagem2.jpg");
 
             produtosRepository.save(produto5);
             produtosRepository.save(produto6);

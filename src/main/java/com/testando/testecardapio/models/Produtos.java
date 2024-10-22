@@ -11,19 +11,20 @@ public class Produtos {
     private Long id;
 
     @Column(name = "NOME", nullable = false)
-    private String nome;
+    private String name;
 
     @Column(name = "preco_venda", nullable = false)
-    private String precoVenda;
+    private String price;
 
     @Column(name = "promocao", nullable = false)
     private String promocao;
 
     @Column(name = "descricao", nullable = false)
-    private String descricao;
+    private String description;
 
-    @Column(name= "CAMINHO_IMAGEM", nullable = true, length = 255)
-    private String caminhoImagem;
+    @Lob
+    @Column(name = "caminho_imagem", nullable = false)
+    private byte[] imagem;
 
     public Long getId() {
         return id;
@@ -33,20 +34,20 @@ public class Produtos {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPrecoVenda() {
-        return precoVenda;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrecoVenda(String precoVenda) {
-        this.precoVenda = precoVenda;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getPromocao() {
@@ -57,19 +58,19 @@ public class Produtos {
         this.promocao = promocao;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getCaminhoImagem() {
-        return caminhoImagem;
+    public byte[] getImagem() {
+        return imagem;
     }
 
-    public void setCaminhoImagem(String caminhoImagem) {
-        this.caminhoImagem = caminhoImagem;
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
     }
 }
