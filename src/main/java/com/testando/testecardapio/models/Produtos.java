@@ -18,6 +18,8 @@ public class Produtos {
 
     @Column(name = "promocao", nullable = false)
     private String promocao;
+    @Transient
+    private Boolean emPromocao;
 
     @Column(name = "descricao", nullable = false)
     private String description;
@@ -56,6 +58,15 @@ public class Produtos {
 
     public void setPromocao(String promocao) {
         this.promocao = promocao;
+        this.setEmPromocao("S".equals(promocao)); // Define se está em promoção
+    }
+
+    public Boolean getEmPromocao() {
+        return emPromocao;
+    }
+
+    public void setEmPromocao(Boolean emPromocao) {
+        this.emPromocao = emPromocao;
     }
 
     public String getDescription() {
