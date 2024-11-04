@@ -19,14 +19,14 @@ public class DataIniciador implements CommandLineRunner {
             Produtos produto5 = new Produtos();
             produto5.setName("Feijoada");
             produto5.setPrice("10.00");
-            produto5.setPromocao("N");
+            //produto5.setPromocao("N");
             produto5.setDescription("Feijão preto e arroz branco");
             //produto5.setImagem("caminho/para/imagem1.jpg");
 
             Produtos produto6 = new Produtos();
             produto6.setName("Macarronada");
             produto6.setPrice("15.00");
-            produto6.setPromocao("S");
+            //produto6.setPromocao("S");
             produto6.setDescription("Macarrão");
             //produto6.setImagem("caminho/para/imagem2.jpg");
 

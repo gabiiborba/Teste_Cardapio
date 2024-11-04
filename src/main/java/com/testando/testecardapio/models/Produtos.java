@@ -7,10 +7,10 @@ import jakarta.persistence.*;
 public class Produtos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Define a estratégia de geração automática de valores para uma chave primária
     private Long id;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "NOME", nullable = false) //Nullable é se aceita campo null ou não
     private String name;
 
     @Column(name = "preco_venda", nullable = false)
@@ -18,13 +18,18 @@ public class Produtos {
 
     @Column(name = "promocao", nullable = false)
     private String promocao;
-    @Transient
+    @Transient //O campo marcado não deve ser persistido no banco de dados
     private Boolean emPromocao;
 
     @Column(name = "descricao", nullable = false)
     private String description;
 
-    @Lob
+    // Relacionamento com o Grupo via id
+    @ManyToOne
+    @JoinColumn(name = "id_grupo", nullable = false)
+    private Grupo grupo;
+
+    @Lob //Aplicada a atributos que armazenam grandes volumes de dados
     @Column(name = "caminho_imagem", nullable = false)
     private byte[] imagem;
 
@@ -56,9 +61,9 @@ public class Produtos {
         return promocao;
     }
 
-    public void setPromocao(String promocao) {
-        this.promocao = promocao;
-        this.setEmPromocao("S".equals(promocao)); // Define se está em promoção
+    @PostLoad //Faz com que o método seja executado automaticamente sempre que uma entidade Produtos for carregada no bd
+    public void verificarPromocao() {
+        this.emPromocao = (Boolean) "S".equals(this.promocao); // Definir o valor do campo emPromocao
     }
 
     public Boolean getEmPromocao() {
@@ -83,5 +88,13 @@ public class Produtos {
 
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
 }
