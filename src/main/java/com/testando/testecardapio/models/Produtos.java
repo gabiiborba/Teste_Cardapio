@@ -1,5 +1,6 @@
 package com.testando.testecardapio.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +27,7 @@ public class Produtos {
 
     // Relacionamento com o Grupo via id
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "id_grupo", nullable = false)
     private Grupo grupo;
 

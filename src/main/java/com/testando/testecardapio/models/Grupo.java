@@ -1,6 +1,9 @@
 package com.testando.testecardapio.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "grupo")
@@ -11,6 +14,10 @@ public class Grupo {
 
     @Column(name = "DESCRICAO", nullable = false)
     private String descricao;
+
+    @OneToMany(mappedBy = "grupo")
+    @JsonManagedReference
+    private List<Produtos> produtos;
 
     public Long getId() {
         return id;
@@ -26,5 +33,13 @@ public class Grupo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<Produtos> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produtos> produtos) {
+        this.produtos = produtos;
     }
 }
