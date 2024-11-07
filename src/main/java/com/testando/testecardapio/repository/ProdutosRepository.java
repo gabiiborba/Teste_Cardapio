@@ -9,6 +9,6 @@ import java.util.List;
 public interface ProdutosRepository extends JpaRepository<Produtos, Long> {
 
     List<Produtos> findByPromocao(String promocao);
-    //@Query(value = "SELECT p.id, p.descricao,null as caminho_imagem,p.nome,p.preco_venda,p.promocao FROM produto p WHERE not excluido ORDER BY descricao_pdv;",nativeQuery = true)
     List<Produtos> findAll();
+    List<Produtos> findByGrupoId(Long grupoId);
 }

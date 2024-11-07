@@ -16,4 +16,8 @@ public class ProdutosService {
     public List<Produtos> listarProdutos() {
         return produtosRepository.findAll();
     }
+
+    public List<Produtos> getProdutosByGrupoId(Long grupoId) {
+        return produtosRepository.findByGrupoId(grupoId);
+    }
 }

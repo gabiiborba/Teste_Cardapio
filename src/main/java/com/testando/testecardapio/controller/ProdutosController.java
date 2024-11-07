@@ -3,14 +3,14 @@ package com.testando.testecardapio.controller;
 import com.testando.testecardapio.models.Produtos;
 import com.testando.testecardapio.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/produtos")
+@CrossOrigin(origins = "*")
 public class ProdutosController {
 
     @Autowired
@@ -19,5 +19,10 @@ public class ProdutosController {
     @GetMapping
     public List<Produtos> listarProdutos() {
         return produtosRepository.findAll();
+    }
+
+    @GetMapping("/{idGrupo}")
+    public List<Produtos> listarProdutosPorGrupo(@PathVariable Long idGrupo) {
+        return produtosRepository.findByGrupoId(idGrupo);
     }
 }

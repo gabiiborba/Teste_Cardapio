@@ -17,9 +17,4 @@ public class GrupoService {
     public List<Grupo> getAllGrupos() {
         return grupoRepository.findAll();
     }
-
-    public Grupo getGrupoById(Long id) {
-        return grupoRepository.findById(id).orElse(null);
-    }
-
 }
